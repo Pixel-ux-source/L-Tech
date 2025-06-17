@@ -1,21 +1,15 @@
 //
-//  TitleLabel3.swift
+//  File.swift
 //  L-Tech
 //
-//  Created by Алексей on 14.06.2025.
+//  Created by Алексей on 15.06.2025.
 //
 
 import UIKit
 
-final class TitleLabel3: UILabel {
+final class SubheadlineLabelRegular: UILabel {
     // MARK: – Text
     override var text: String? {
-        didSet {
-            configureText()
-        }
-    }
-    
-    var customAligment: NSTextAlignment = .center {
         didSet {
             configureText()
         }
@@ -24,7 +18,7 @@ final class TitleLabel3: UILabel {
     // MARK: – Life Cycle
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
-
+        configureText()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -32,21 +26,21 @@ final class TitleLabel3: UILabel {
     
     // MARK: – Configuration's
     private func configureText() {
-        numberOfLines = 0
+        numberOfLines = 3
         guard let text, !text.isEmpty else {
             attributedText = nil
             return
         }
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = customAligment
-        paragraphStyle.lineSpacing = 4
+        paragraphStyle.alignment = .left
+        paragraphStyle.lineSpacing = 2
         
         let attributedString = NSMutableAttributedString(string: text)
         attributedString.addAttributes([
             .paragraphStyle: paragraphStyle,
-            .font: UIFont(name: "SFProText-Semibold", size: 20) ?? UIFont.systemFont(ofSize: 20, weight: .semibold),
-            .kern: 0.75,
+            .font: UIFont(name: "SFProText-Regular", size: 15) ?? UIFont.systemFont(ofSize: 15, weight: .regular),
+            .kern: -0.24,
             .foregroundColor: UIColor.blackCustom
         ], range: NSRange(location: 0, length: attributedString.length))
         

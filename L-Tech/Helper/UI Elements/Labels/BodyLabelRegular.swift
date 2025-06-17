@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BodyLabel: UILabel {
+final class BodyLabelRegular: UILabel {
     // MARK: – Text
     override var text: String? {
         didSet {
@@ -25,7 +25,7 @@ final class BodyLabel: UILabel {
     
     // MARK: – Configuration's
     private func configureText() {
-        numberOfLines = 1
+        numberOfLines = 0
         guard let text, !text.isEmpty else {
             attributedText = nil
             return
@@ -33,12 +33,12 @@ final class BodyLabel: UILabel {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .left
-        paragraphStyle.lineSpacing = 22
+        paragraphStyle.lineSpacing = 2
         
         let attributedString = NSMutableAttributedString(string: text)
         attributedString.addAttributes([
             .paragraphStyle: paragraphStyle,
-            .font: UIFont(name: "SF-Pro-Text-Semibold", size: 17) ?? UIFont.systemFont(ofSize: 17, weight: .semibold),
+            .font: UIFont(name: "SFProText-Regular", size: 17) ?? UIFont.systemFont(ofSize: 17, weight: .regular),
             .kern: -0.41,
             .foregroundColor: UIColor.blackCustom
         ], range: NSRange(location: 0, length: attributedString.length))

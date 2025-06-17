@@ -10,6 +10,7 @@
 		1FAB64692DFDA94B001A6E98 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAB64682DFDA94B001A6E98 /* SnapKit */; };
 		1FFA44652DFEC9CB001D8903 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1FFA44642DFEC9CB001D8903 /* Alamofire */; };
 		1FFA476F2DFF21A8001D8903 /* InputMask in Frameworks */ = {isa = PBXBuildFile; productRef = 1FFA476E2DFF21A8001D8903 /* InputMask */; };
+		1FFA4A522E0034DB001D8903 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1FFA4A512E0034DB001D8903 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 			files = (
 				1FFA476F2DFF21A8001D8903 /* InputMask in Frameworks */,
 				1FAB64692DFDA94B001A6E98 /* SnapKit in Frameworks */,
+				1FFA4A522E0034DB001D8903 /* SDWebImage in Frameworks */,
 				1FFA44652DFEC9CB001D8903 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +139,7 @@
 				1FAB64682DFDA94B001A6E98 /* SnapKit */,
 				1FFA44642DFEC9CB001D8903 /* Alamofire */,
 				1FFA476E2DFF21A8001D8903 /* InputMask */,
+				1FFA4A512E0034DB001D8903 /* SDWebImage */,
 			);
 			productName = "L-Tech";
 			productReference = 1F286C202DF8386C0003C768 /* L-Tech.app */;
@@ -224,6 +227,7 @@
 				1FAB64672DFDA94B001A6E98 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				1FFA44632DFEC9CB001D8903 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				1FFA476D2DFF21A8001D8903 /* XCRemoteSwiftPackageReference "input-mask-ios" */,
+				1FFA4A502E0034DB001D8903 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1F286C212DF8386C0003C768 /* Products */;
@@ -604,6 +608,14 @@
 				minimumVersion = 7.3.2;
 			};
 		};
+		1FFA4A502E0034DB001D8903 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -621,6 +633,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1FFA476D2DFF21A8001D8903 /* XCRemoteSwiftPackageReference "input-mask-ios" */;
 			productName = InputMask;
+		};
+		1FFA4A512E0034DB001D8903 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FFA4A502E0034DB001D8903 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

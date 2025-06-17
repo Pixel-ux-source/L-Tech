@@ -11,7 +11,7 @@ import InputMask
 
 final class InputView: UIView {
     // MARK: – UI Element's
-    private let titleLabel = BodyLabel()
+    private let titleLabel = BodyLabelSemibold()
     private let errorLabel = FootnoteLabel()
     private let textField: AuthTextField
     private let vStack: UIStackView

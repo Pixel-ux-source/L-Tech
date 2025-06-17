@@ -15,6 +15,12 @@ final class FootnoteLabel: UILabel {
         }
     }
     
+    var customTextColor: UIColor = .redCustom {
+        didSet {
+            configureText()
+        }
+    }
+    
     // MARK: – Life Cycle
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -39,9 +45,9 @@ final class FootnoteLabel: UILabel {
         let attributedString = NSMutableAttributedString(string: text)
         attributedString.addAttributes([
             .paragraphStyle: paragraphStyle,
-            .font: UIFont(name: "SF-Pro-Text-Regular", size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .regular),
+            .font: UIFont(name: "SFProText-Regular", size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .regular),
             .kern: -0.08,
-            .foregroundColor: UIColor.redCustom
+            .foregroundColor: customTextColor
         ], range: NSRange(location: 0, length: attributedString.length))
         
         attributedText = attributedString

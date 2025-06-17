@@ -7,15 +7,22 @@
 
 import Foundation
 
-protocol HomeBuilderProtocol: AnyObject {
-   static func build() -> HomeController
+protocol HomeBuilderProtocol {
+   static func build(dataManager: CoreDataManagerProtocol, completion: @escaping ((HomeController) -> Void))
 }
 
-final class HomeBuilder: HomeBuilderProtocol {
-    static func build() -> HomeController {
-        let vc = HomeController()
-        return vc
+struct HomeBuilder: HomeBuilderProtocol {
+    static func build(dataManager: CoreDataManagerProtocol, completion: @escaping ((HomeController) -> Void)) {
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        dataManager.fetch(of: News.self, limit: 30, sortDescriptors: [sortDescriptor]) { model in
+            let news = model.map(NewsModel.init)
+            DispatchQueue.main.async {
+                let vc = HomeController()
+                let networkService = NetworkService()
+                let presenter = HomePresenter(view: vc, networkService: networkService, dataManager: dataManager, news: news)
+                vc.presenter = presenter
+                completion(vc)
+            }
+        }
     }
-    
-    
 }

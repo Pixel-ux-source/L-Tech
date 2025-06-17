@@ -11,7 +11,7 @@ protocol AuthBuilderProtocol {
     static func build() -> AuthController
 }
 
-public final class AuthBuilder: AuthBuilderProtocol {
+struct AuthBuilder: AuthBuilderProtocol {
     static func build() -> AuthController {
         let vc = AuthController()
         let networkService = NetworkService()

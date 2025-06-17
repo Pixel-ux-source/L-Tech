@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class MainButton: UIButton {
-    let bodyBtnLabel = BodyLabel()
+    let bodyBtnLabel = BodyLabelSemibold()
     
     // MARK: – Life Cycle
     init(completion: @escaping () -> Void) {

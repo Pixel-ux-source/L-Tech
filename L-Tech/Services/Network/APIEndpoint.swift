@@ -13,6 +13,7 @@ enum APIEndpoint {
     
     case auth(phone: String, password: String)
     case phoneMasks
+    case news
     
     var url: URL? {
         switch self {
@@ -20,6 +21,8 @@ enum APIEndpoint {
             return URL(string: "\(APIEndpoint.baseURL)/auth")
         case .phoneMasks:
             return URL(string: "\(APIEndpoint.baseURL)/phone_masks")
+        case .news:
+            return URL(string: "\(APIEndpoint.baseURL)/posts")
         }
     }
     
@@ -31,6 +34,9 @@ enum APIEndpoint {
             ]
             return headers
         case .phoneMasks:
+            let headers: HTTPHeaders = [:]
+            return headers
+        case .news:
             let headers: HTTPHeaders = [:]
             return headers
         }
@@ -45,6 +51,9 @@ enum APIEndpoint {
             ]
             return parameters
         case .phoneMasks:
+            let parameters: Parameters = [:]
+            return parameters
+        case .news:
             let parameters: Parameters = [:]
             return parameters
         }

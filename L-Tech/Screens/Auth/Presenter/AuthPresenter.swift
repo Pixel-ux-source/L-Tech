@@ -11,7 +11,7 @@ protocol AuthViewProtocol: AnyObject {
     
 }
 
-protocol AuthPresenterProtocol {
+protocol AuthPresenterProtocol: AnyObject {
     func login(phone: String, password: String, completion: @escaping (Bool) -> Void)
     func fetchPhoneMask(completion: @escaping (String) -> Void)
 }
@@ -21,10 +21,10 @@ final class AuthPresenter: AuthPresenterProtocol {
     private let networkService: NetworkProtocol
     
     // MARK: – Variable's
-    private weak var view: AuthController?
+    private weak var view: AuthViewProtocol?
     
     // MARK: – Initializate
-    init(view: AuthController? = nil, networkService: NetworkProtocol) {
+    init(view: AuthViewProtocol? = nil, networkService: NetworkProtocol) {
         self.view = view
         self.networkService = networkService
     }
